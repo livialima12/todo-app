@@ -1,0 +1,23 @@
+.task-list {
+  margin-bottom: 1rem;
+  padding: 2rem;
+  background: white;
+
+  .task-list-label {
+    margin-left: 1rem;
+  }
+  
+  input[type="checkbox"] {
+    border: 2px solid #bfbfc0;
+
+    color: red;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+
+
+  .task-list.button {
+    
+  }
+}

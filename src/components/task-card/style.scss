@@ -1,0 +1,16 @@
+.task-card-wrapper {
+  max-width: 320px;
+
+  .task-card-add-button {
+    width: 100%;
+    padding: 10px 20px;
+    background: white;
+    // border-radius: 1rem;
+    border: none;
+    font-weight: bold;
+
+    &:hover{
+      background: var(--primaryFaded);
+    }
+  }
+}

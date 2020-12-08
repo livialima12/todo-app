@@ -7,16 +7,10 @@ interface AppState {}
 interface AppProps {
   createTask: any
 }
- 
 
 export default class Form extends Component<AppProps, AppState> {
 
   task = "";
-
-  constructor(props: any){
-    super(props);
-    console.log(props)
-  }
 
   taskSubmit(event: any){
     event.preventDefault();
@@ -39,5 +33,4 @@ export default class Form extends Component<AppProps, AppState> {
       </form>
     )
   }
-
 }

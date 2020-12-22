@@ -1,0 +1,81 @@
+@import "../../assets/App.scss";
+
+.todo-card-wrapper {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: white;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0px 35px 2rem $light-grayish-blue;
+  margin: 1rem 0;
+
+  .todo-item-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    align-items: center;
+    
+    .remove-icon {
+      display: block;
+      font-weight: lighter;
+      color: $very-dark-grayish-blue;
+    }
+    
+    .todo-item-content{
+      display: flex;
+      margin-right: 1rem;
+      align-items: center;
+      
+      .todo-list-label{
+        font-size: 0.8rem;
+        word-break: break-all;
+        color: $very-dark-grayish-blue;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: none;
+      
+      + *::before{
+        margin-right: 0.6rem;
+        content: "";
+        display: inline-block;
+        vertical-align: bottom;
+        border: 0.1rem solid $light-grayish-blue;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    &.is-checked {
+      input[type="checkbox"] {        
+        &:checked + ::before {
+          background: $light-grayish-blue url('../../assets/imgs/icon-check.svg') no-repeat center;          
+        }
+        &:checked + label { 
+          text-decoration:line-through;
+          font-style: italic;
+          color: $light-grayish-blue;
+          span {
+            color: $light-grayish-blue;
+          }
+        }
+      }
+    }
+  }
+
+  hr.todo-list-divider{
+    margin: unset;
+    border-width: 0.1px;
+    border-top: 0px solid $light-grayish-blue;
+  }
+
+  .todo-card-footer {
+    margin: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: $dark-grayish-blue;
+
+  }
+}

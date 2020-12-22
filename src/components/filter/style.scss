@@ -1,0 +1,12 @@
+@import '../../assets/variables.scss';
+
+.filter-card {
+  background-color: white;
+  display: flex;
+  font-size: 0.7rem;
+  color: $dark-grayish-blue;
+  justify-content: space-around;
+  border-radius: 6px;
+  box-shadow: 0px 35px 2rem #d2d3db;
+  padding: 1rem 3rem;
+}

@@ -1,0 +1,26 @@
+@import '../../assets/variables.scss';
+
+.form-insert{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  input:focus::-webkit-input-placeholder { color:transparent; }
+  input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+  input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+  input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+  input:focus::placeholder { color: transparent;  }
+
+  .input {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 12px;
+    border: none;
+    font-weight: 400;
+
+    ::placeholder{
+      color: $very-dark-grayish-blue;
+    }    
+  }
+}

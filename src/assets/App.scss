@@ -1,19 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import './variables.scss';
+
 :root {
-  --primary: #AF7EEBff;
-  --primaryFaded: rgb(224, 200, 253);
-  --secondary: #98A1C1ff;
-  --font: #373f51;
-  --active: #c4f7ff;
-  --background: #E3E9FFff;
-  background-color: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  background-color:$very-light-gray;
+}
+
+.main-application{
+  min-height: 100vh;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  margin: 1rem auto;
-  max-width: 720px;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
+  margin: 0.8rem 1.5rem;
+  position: absolute;
+  top: 5rem;
+
+  .info-text{
+    margin: 2rem auto;
+    font-size: 0.8rem;
+    color: $dark-grayish-blue;
+  }
 }
-
-

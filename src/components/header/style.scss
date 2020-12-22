@@ -1,6 +1,31 @@
+@import '../../assets/variables.scss';
+
 .main-header {
-  background: var(--secondary);
+  background-image: url(../../assets/imgs/bg-mobile-light.jpg);
+  background-color: $primary;
+  height: 165px;
   display: flex;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  
+  // @media (min-width: $breakpoint-tablet) {
+  //   padding: 2rem;
+  // }
+
+  .header-title {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    margin-top: 28px;
+
+    // @media (min-width: $breakpoint-tablet) {
+    // }
+  }
+
+  .header-menu-icon{
+    margin-top: 28px;
+    color: white;
+    font-size: 1.2rem;
+  }
 }

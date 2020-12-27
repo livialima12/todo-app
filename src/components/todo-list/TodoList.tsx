@@ -14,32 +14,12 @@ interface AppState {
 }
 
 interface AppProps {
-  categories: string[];
   taskData: TasksData
 }
 
-  /**
- * Ao declarar a classe e extender o componente, podemos passar os tipos de interface para props e state
- */
 export default class TodoList extends Component<AppProps, AppState> {
 
   taskList = [];
-  
-    /**
-   * É necessário declarar o this.state aqui por que, se não o fizer, ao fazer a primeira verificação de exibição,
-   * não haverá um showForm. Uma vez que o showForm tem como valor false isso poderia ser resolvido com a
-   * implantação do optional chaining através da instalação do Babel
-   * {@link https://dev.to/aumayeung/how-to-use-the-optional-chaining-operator-in-your-react-app-right-now-1ocj}
-   */
-  constructor(
-    props: any) {
-    super(props);
-
-    this.state = { 
-      showForm: false, 
-      taskList: this.taskList
-    } 
-  }
 
   componentDidMount(){
     this.props.taskData.subscribe(this.createTaskList.bind(this));
@@ -58,7 +38,7 @@ export default class TodoList extends Component<AppProps, AppState> {
       <div className="todo-card-wrapper">
         {this.props.taskData.taskList.map((taskObject: TaskModel , index: any) => {
           return (
-            <div key={taskObject.id}>
+            <div draggable key={taskObject.id}>
               <div className={`todo-item-wrapper ${taskObject.isFinished === true ? "is-checked" : ""}`}>
                 <input 
                   onClick={this.props.taskData.checkTask.bind(this.props.taskData, index)}

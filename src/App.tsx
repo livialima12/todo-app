@@ -19,7 +19,7 @@ class App extends Component {
         <Header />
         <section className="content">
           <Form taskData={this.taskData}/>
-          <TodoList taskData={this.taskData} categories={this.categoriesList} />
+          <TodoList taskData={this.taskData} />
           <Filter taskData={this.taskData}></Filter>
           <p className="info-text">Drag and drop to reorder list</p>
         </section>

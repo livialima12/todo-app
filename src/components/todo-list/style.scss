@@ -49,10 +49,10 @@
 
     &.is-checked {
       input[type="checkbox"] {        
-        &:checked + ::before {
+        & + ::before {
           background: $light-grayish-blue url('../../assets/imgs/icon-check.svg') no-repeat center;          
         }
-        &:checked + label { 
+        & + label { 
           text-decoration:line-through;
           font-style: italic;
           color: $light-grayish-blue;

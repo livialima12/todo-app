@@ -4,13 +4,15 @@ import { Component } from 'react';
 
 import TasksData from '../../data/TasksData';
 
-interface AppState {}
+export default class Form extends Component<{taskData: TasksData}, {}> {
 
-interface AppProps {
-  taskData: TasksData
-}
+  componentDidMount(){
+    this.props.taskData.subscribe(this.updateForm.bind(this));
+  }
 
-export default class Form extends Component<AppProps, AppState> {
+  updateForm(){
+    this.setState({});
+  }
 
   createTask(event: any){
     this.props.taskData.task = event.target.value;
@@ -19,7 +21,7 @@ export default class Form extends Component<AppProps, AppState> {
   render(){
     return (
       <form className="form-insert" onSubmit={this.props.taskData.createTask.bind(this.props.taskData)}>
-        <input className="input" type="text" id="input-task" placeholder="Create a new todo" onChange={this.createTask.bind(this)}/>
+        <input disabled={this.props.taskData.isFormDisabled} className="input" type="text" id="input-task" placeholder="Create a new todo" onChange={this.createTask.bind(this)}/>
       </form>
     )
   }

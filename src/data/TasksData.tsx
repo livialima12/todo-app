@@ -3,13 +3,14 @@ import TaskModel from '../models/task-data.model';
 export default class TasksData {
 
   public taskList: TaskModel[];
+  public updatedTaskList: TaskModel[] = [];
+  public isFormDisabled: boolean = false;
+
   public task: string = "";
   public activeTasks: TaskModel[] = [];
   public inactiveTasks: TaskModel[] = [];
   private subscribers: any[] = [];
   
-
-
   constructor(){
     this.taskList = [
       {
@@ -22,12 +23,18 @@ export default class TasksData {
         isFinished: false,
         id: "testeId2"
     }];
+    this.updatedTaskList = this.taskList;
     this.filterTasks();
   }
 
-  filterTasks(){
-    this.activeTasks = this.taskList.filter(task => task.isFinished === false);
-    this.inactiveTasks = this.taskList.filter(task => task.isFinished === true);
+  updateTaskList(){
+    this.updatedTaskList = this.taskList;
+  }
+
+  checkTask(index: any, e: any){
+    this.taskList[index].isFinished = e.target.checked;
+    this.filterTasks();
+    this.notify();
   }
 
   createTask(event: any) {
@@ -38,26 +45,50 @@ export default class TasksData {
       isFinished: false,
       id: this.task + Math.round(Math.random() * 10)
     }
-    this.taskList.push(taskObject);
-    this.filterTasks();
+    this.taskList = [...this.taskList, taskObject];
+    this.updateTaskList();
     this.notify();
   }
 
-  deleteTask(this: any, taskId: any){
-    this.taskList = this.taskList.filter((task: any) => task.id !== taskId);
-    this.filterTasks();
-    this.notify();
-  }
-
-  checkTask(index: any, e: any){
-    this.taskList[index].isFinished = e.target.checked;
+  deleteTask(this: any, taskId: any){    
+    this.taskList = this.updatedTaskList.filter((task: any) => task.id !== taskId);
+    this.updateTaskList();
     this.filterTasks();
     this.notify();
   }
 
   clearCompletedTasks(){
+    this.taskList = this.activeTasks;
+    this.inactiveTasks = [];
+    this.updateTaskList();
+    this.notify();
+  }
+
+  filterTasks(){
+    this.activeTasks = this.updatedTaskList.filter(task => task.isFinished === false);
+    this.inactiveTasks = this.updatedTaskList.filter(task => task.isFinished === true);
+  }
+
+  classifyTasks(identifier: string){
     this.filterTasks();
-    this.taskList = this.activeTasks
+    switch (identifier) {
+      case "active":
+        this.taskList = this.activeTasks;
+        this.isFormDisabled = true;
+        break;
+      case "inactive":
+        this.taskList = this.inactiveTasks;
+        this.isFormDisabled = true;
+        break;
+        case "all":
+          this.taskList = this.updatedTaskList;
+          this.isFormDisabled = false;
+          break;
+      default:
+        this.taskList = this.updatedTaskList;
+        this.isFormDisabled = false;
+        break;
+    }
     this.notify();
   }
 

@@ -4,28 +4,37 @@
   background-image: url(../../assets/imgs/bg-mobile-light.jpg);
   background-color: $primary;
   height: 165px;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
   
-  // @media (min-width: $breakpoint-tablet) {
-  //   padding: 2rem;
-  // }
-
-  .header-title {
-    color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: 10px;
-    margin-top: 28px;
-
-    // @media (min-width: $breakpoint-tablet) {
-    // }
+  @media (min-width: $breakpoint-tablet) {
+    background-image: url(../../assets/imgs/bg-desktop-light.jpg);
+    padding: 2rem;
   }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 40vw;
+      margin: auto;
+      padding: unset;
+    }
+    
+    .header-title {
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 10px;
+      margin-top: 28px;
+  
+    }
+  
+    .header-menu-icon{
+      margin-top: 28px;
+      color: white;
+      font-size: 1.2rem;
+    }
 
-  .header-menu-icon{
-    margin-top: 28px;
-    color: white;
-    font-size: 1.2rem;
   }
 }

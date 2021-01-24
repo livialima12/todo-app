@@ -10,9 +10,11 @@ export default class Header extends Component {
   render(){
     return (
       <div className="main-header">
+        <div className="header-content">
         <h1 className="header-title">TODO</h1>
         <FontAwesomeIcon className="header-menu-icon" icon={faMoon} />
         {/* <FontAwesomeIcon className="header-menu-icon" icon={faSun} /> */}
+        </div>
       </div>
     )
   }
